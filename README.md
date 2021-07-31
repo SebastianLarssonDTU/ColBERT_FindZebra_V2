@@ -15,23 +15,23 @@ Technically, ColBERT_MC_retr_train should be able to do everything ColBERT_MC ca
 To run the models, simply follow the same procedure as for the original ColBERT model. However, the triples need to include 5 extra columns: one column per query option, where the first column contains the correct answer. The latter is only important for training, but also makes evaluating the models easier.
 
 Training example:
-CUDA_VISIBLE_DEVICES= CUDA_DEVICES   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # e.g. 0,1,2,3 \
+CUDA_VISIBLE_DEVICES= CUDA_DEVICES   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # e.g. 0,1,2,3 \
 python -m torch.distributed.launch \
---nproc_per_node= NPROC               # e.g. 4 \
+--nproc_per_node= NPROC               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# e.g. 4 \
 -m colbert.train \
 --root /path/to/experiment \
 --amp \
 --accum 1 \
 --similarity cosine \
---query_maxlen 250                    # Can be changed, but fits to the MedQA dataset \
---doc_maxlen 75                       # Can be changed, but fits to the MedQA dataset \
+--query_maxlen 250                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Can be changed, but fits to the MedQA dataset \
+--doc_maxlen 75                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Can be changed, but fits to the MedQA dataset \
 --mask-punctuation \
 --run experiment.psg.cosine \
---bsize batch_size                    # Should be divisible with the number of GPUs \
---checkpoint checkpoint.dnn           # If the model should start from existing checkpoint \
---triples mc_triples.tsv              # The triples. For multiple choice, these triples should contain the 5 options as 5 new columns, with the correct answer as first column \
---experiment experiment-psg           # The name of the experiment \
---iteration {iteration}               # Only needed for ColBERT_MC_retr_train \
+--bsize batch_size                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Should be divisible with the number of GPUs \
+--checkpoint checkpoint.dnn           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# If the model should start from existing checkpoint \
+--triples mc_triples.tsv              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# The triples. For multiple choice, these triples should contain the 5 options as 5 new columns, with the correct answer as first column \
+--experiment experiment-psg           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# The name of the experiment \
+--iteration {iteration}               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Only needed for ColBERT_MC_retr_train \
 
 ### Data, checkpoints, and scrips
 
