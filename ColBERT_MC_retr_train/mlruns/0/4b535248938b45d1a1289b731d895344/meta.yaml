@@ -1,0 +1,15 @@
+artifact_uri: file:///home/s190619/My_ColBERT/ColBERT_MC_retr_train/mlruns/0/4b535248938b45d1a1289b731d895344/artifacts
+end_time: 1626876014556
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 4b535248938b45d1a1289b731d895344
+run_uuid: 4b535248938b45d1a1289b731d895344
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1626876014481
+status: 3
+tags: []
+user_id: s190619
