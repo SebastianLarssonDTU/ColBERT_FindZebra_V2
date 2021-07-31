@@ -14,7 +14,7 @@ Technically, ColBERT_MC_retr_train should be able to do everything ColBERT_MC ca
 
 To run the models, simply follow the same procedure as for the original ColBERT model. However, the triples need to include 5 extra columns: one column per query option, where the first column contains the correct answer. The latter is only important for training, but also makes evaluating the models easier.
 
-Training example:
+Training example:\
 CUDA_VISIBLE_DEVICES= CUDA_DEVICES   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # e.g. 0,1,2,3 \
 python -m torch.distributed.launch \
 --nproc_per_node= NPROC               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# e.g. 4 \
